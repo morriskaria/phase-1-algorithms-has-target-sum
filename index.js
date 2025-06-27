@@ -1,6 +1,27 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
 }
+function hasTargetSum(arr, target) {
+  // Create a Set to store numbers we've seen
+  const seenNumbers = new Set();
+
+  // Iterate through each number in the array
+  for (const number of arr) {
+    // Calculate the complement (target - current number)
+    const complement = target - number;
+
+    // If we've seen the complement before, we found a pair
+    if (seenNumbers.has(complement)) {
+      return true;
+    }
+
+    // Add the current number to our set
+    seenNumbers.add(number);
+  }
+
+  // If we get through the whole array without finding a pair
+  return false;
+}
 
 /* 
   Write the Big O time complexity of your function here
